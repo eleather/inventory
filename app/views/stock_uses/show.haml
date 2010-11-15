@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p 
+  %b= StockUse.human_attribute_name :stock_id
+  = @stock_use.stock_id
+%p 
+  %b= StockUse.human_attribute_name :name
+  = @stock_use.name
+%p 
+  %b= StockUse.human_attribute_name :use_type_id
+  = @stock_use.use_type_id
+%p 
+  %b= StockUse.human_attribute_name :amount
+  = @stock_use.amount
+%p 
+  %b= StockUse.human_attribute_name :description
+  = @stock_use.description
+
+= link_to 'Edit', edit_stock_use_path(@singular_name)
+|
+= link_to 'Back', stock_uses_path

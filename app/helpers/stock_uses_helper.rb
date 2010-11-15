@@ -1,0 +1,2 @@
+module StockUsesHelper
+end

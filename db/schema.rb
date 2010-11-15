@@ -9,9 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101115044603) do
+ActiveRecord::Schema.define(:version => 20101115061947) do
 
   create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "components", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "stock_use_id"
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
@@ -33,12 +42,24 @@ ActiveRecord::Schema.define(:version => 20101115044603) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "color"
+    t.string   "product_number"
   end
 
   create_table "products", :force => true do |t|
     t.integer  "product_type_id"
     t.string   "name"
     t.string   "product_number"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stock_uses", :force => true do |t|
+    t.integer  "stock_id"
+    t.string   "name"
+    t.integer  "use_type_id"
+    t.string   "amount"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -55,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20101115044603) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "product_number"
   end
 
   create_table "types", :force => true do |t|

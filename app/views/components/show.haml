@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p 
+  %b= Component.human_attribute_name :item_id
+  = link_to @component.item.name, item_path(@component.item)
+%p 
+  %b= Component.human_attribute_name :stock_use_id
+  = @component.stock_use_id
+%p 
+  %b= Component.human_attribute_name :name
+  = @component.name
+%p 
+  %b= Component.human_attribute_name :description
+  = @component.description
+
+= link_to 'Edit', edit_component_path(@singular_name)
+|
+= link_to 'Back', components_path

@@ -1,0 +1,23 @@
+%h1 Listing components
+
+%table
+  %tr
+    %th= Component.human_attribute_name :item_id
+    %th= Component.human_attribute_name :stock_use_id
+    %th= Component.human_attribute_name :name
+    %th= Component.human_attribute_name :description
+    %th
+    %th
+    %th
+  
+  - @components.each do |component|
+    %tr{ :class => cycle(:odd, :even) }
+      %td= component.item_id
+      %td= component.stock_use_id
+      %td= component.name
+      %td= component.description
+      %td.action= link_to 'Show', component
+      %td.action= link_to 'Edit', edit_component_path(component)
+      %td.action= link_to 'Destroy', component, :confirm => 'Are you sure?', :method => :delete
+
+= link_to 'New Component', new_component_path

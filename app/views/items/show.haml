@@ -27,7 +27,7 @@
 .association_list_box#component_list
   .association_list_box_title Components
   .association_list_box_content
-    - @material.components.each do |component|
+    - @item.components.each do |component|
       = link_to (!component.name.blank? ? component.name : 'make a pretty name method for component'), component_path(component)
   .association_list_box_footer
     = link_to 'Add Component', new_item_component_path(@item)

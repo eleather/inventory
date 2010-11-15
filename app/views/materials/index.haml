@@ -4,6 +4,8 @@
   %tr
     %th= Material.human_attribute_name :material_type_id
     %th= Material.human_attribute_name :name
+    %th= Material.human_attribute_name :color
+    %th= Material.human_attribute_name :product_number
     %th= Material.human_attribute_name :description
     %th
     %th
@@ -13,6 +15,8 @@
     %tr{ :class => cycle(:odd, :even) }
       %td= material.material_type_id
       %td= material.name
+      %td= material.color
+      %td= material.product_number
       %td= material.description
       %td.action= link_to 'Show', material
       %td.action= link_to 'Edit', edit_material_path(material)

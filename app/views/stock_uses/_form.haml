@@ -1,0 +1,31 @@
+= form_for(@stock_use) do |f|
+  - if @stock_use.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@stock_use.errors.count, 'error')} prohibited this user from being saved:"
+      
+      %ul
+        - @stock_use.errors.full_messages.each do |msg|
+          %li= msg
+  
+  .field
+    = f.label :stock_id
+    %br
+    = f.text_field :stock_id
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :use_type_id
+    %br
+    = f.text_field :use_type_id
+  .field
+    = f.label :amount
+    %br
+    = f.text_field :amount
+  .field
+    = f.label :description
+    %br
+    = f.text_area :description
+  .actions
+    = f.submit

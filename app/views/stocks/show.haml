@@ -2,7 +2,7 @@
 
 %p 
   %b= Stock.human_attribute_name :material_id
-  = link_to @stock.material.name, material_path(@stock.material)
+  = link_to @stock.material.pretty_name, material_path(@stock.material)
 %p 
   %b= Stock.human_attribute_name :name
   = @stock.name
@@ -18,6 +18,9 @@
 %p 
   %b= Stock.human_attribute_name :purchase_location_id
   = @stock.purchase_location_id
+%p 
+  %b= Stock.human_attribute_name :product_number
+  = @stock.product_number
 %p 
   %b= Stock.human_attribute_name :purchase_amount
   = @stock.purchase_amount

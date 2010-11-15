@@ -1,4 +1,8 @@
 Inventory::Application.routes.draw do |map|
+  resources :stock_uses
+
+  resources :components
+
   resources :stocks
 
   # The priority is based upon order of creation:
@@ -67,6 +71,7 @@ Inventory::Application.routes.draw do |map|
   
   resources :materials do  
     resources :stocks do
+      resources :stock_uses
       resources :components
     end
   end

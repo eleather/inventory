@@ -1,0 +1,25 @@
+%h1 Listing stock_uses
+
+%table
+  %tr
+    %th= StockUse.human_attribute_name :stock_id
+    %th= StockUse.human_attribute_name :name
+    %th= StockUse.human_attribute_name :use_type_id
+    %th= StockUse.human_attribute_name :amount
+    %th= StockUse.human_attribute_name :description
+    %th
+    %th
+    %th
+  
+  - @stock_uses.each do |stock_use|
+    %tr{ :class => cycle(:odd, :even) }
+      %td= stock_use.stock_id
+      %td= stock_use.name
+      %td= stock_use.use_type_id
+      %td= stock_use.amount
+      %td= stock_use.description
+      %td.action= link_to 'Show', stock_use
+      %td.action= link_to 'Edit', edit_stock_use_path(stock_use)
+      %td.action= link_to 'Destroy', stock_use, :confirm => 'Are you sure?', :method => :delete
+
+= link_to 'New Stock_use', new_stock_use_path

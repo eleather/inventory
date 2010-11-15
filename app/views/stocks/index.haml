@@ -8,6 +8,7 @@
     %th= Stock.human_attribute_name :amount
     %th= Stock.human_attribute_name :purchased_at
     %th= Stock.human_attribute_name :purchase_location_id
+    %th= Stock.human_attribute_name :product_number
     %th= Stock.human_attribute_name :purchase_amount
     %th= Stock.human_attribute_name :description
     %th
@@ -16,12 +17,13 @@
   
   - @stocks.each do |stock|
     %tr{ :class => cycle(:odd, :even) }
-      %td= link_to stock.material.name, material_path(stock.material)
+      %td= link_to stock.material.pretty_name, material_path(stock.material)
       %td= stock.name
       %td= stock.amount_type_id
       %td= stock.amount
       %td= stock.purchased_at
       %td= stock.purchase_location_id
+      %td= stock.product_number
       %td= stock.purchase_amount
       %td= stock.description
       %td.action= link_to 'Show', stock

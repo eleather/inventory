@@ -1,0 +1,33 @@
+= form_for(@component) do |f|
+  - if @component.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@component.errors.count, 'error')} prohibited this user from being saved:"
+      
+      %ul
+        - @component.errors.full_messages.each do |msg|
+          %li= msg
+  
+  .field
+    = f.label :item_id
+    %br
+    - if Item.all.any?
+      = f.select :item_id, Item.all.map {|u| [u.name, u.id]}
+    - else
+      = "You haven't created any items.  #{link_to 'Click here', new_item_path} to add one."
+  .field
+    = f.label :stock_use_id
+    %br
+    - if StockUse.all.any?
+      = f.select :stock_use_id, StockUse.all.map {|u| [u.name, u.id]}
+    - else
+      = "You haven't created any stock uses.  #{link_to 'Click here', new_stock_use_path} to add one."
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :description
+    %br
+    = f.text_area :description
+  .actions
+    = f.submit
