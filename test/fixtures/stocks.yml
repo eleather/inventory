@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  material_id: 1
+  name: MyString
+  amount_type_id: 1
+  amount: MyString
+  purchased_at: 2010-11-14
+  purchase_location_id: 1
+  purchase_amount: 1.5
+  description: MyText
+
+two:
+  material_id: 1
+  name: MyString
+  amount_type_id: 1
+  amount: MyString
+  purchased_at: 2010-11-14
+  purchase_location_id: 1
+  purchase_amount: 1.5
+  description: MyText

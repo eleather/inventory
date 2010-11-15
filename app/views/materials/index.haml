@@ -1,0 +1,21 @@
+%h1 Listing materials
+
+%table
+  %tr
+    %th= Material.human_attribute_name :material_type_id
+    %th= Material.human_attribute_name :name
+    %th= Material.human_attribute_name :description
+    %th
+    %th
+    %th
+  
+  - @materials.each do |material|
+    %tr{ :class => cycle(:odd, :even) }
+      %td= material.material_type_id
+      %td= material.name
+      %td= material.description
+      %td.action= link_to 'Show', material
+      %td.action= link_to 'Edit', edit_material_path(material)
+      %td.action= link_to 'Destroy', material, :confirm => 'Are you sure?', :method => :delete
+
+= link_to 'New Material', new_material_path

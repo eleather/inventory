@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  material_type_id: 1
+  name: MyString
+  description: MyText
+
+two:
+  material_type_id: 1
+  name: MyString
+  description: MyText

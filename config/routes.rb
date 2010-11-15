@@ -1,4 +1,6 @@
 Inventory::Application.routes.draw do |map|
+  resources :stocks
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -42,7 +44,7 @@ Inventory::Application.routes.draw do |map|
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
+  #     # (app/controllers/admin/products_ckontroller.rb)
   #     resources :products
   #   end
 
@@ -56,7 +58,18 @@ Inventory::Application.routes.draw do |map|
   
   resources :products
   
-  resources :items
+  resources :items do
+    resources :components
+  end
+  
+  
+  resources :material_types
+  
+  resources :materials
+  
+  resources :stocks do
+    resources :components
+  end
   
   
   resources :customers

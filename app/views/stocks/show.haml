@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p 
+  %b= Stock.human_attribute_name :material_id
+  = @stock.material_id
+%p 
+  %b= Stock.human_attribute_name :name
+  = @stock.name
+%p 
+  %b= Stock.human_attribute_name :amount_type_id
+  = @stock.amount_type_id
+%p 
+  %b= Stock.human_attribute_name :amount
+  = @stock.amount
+%p 
+  %b= Stock.human_attribute_name :purchased_at
+  = @stock.purchased_at
+%p 
+  %b= Stock.human_attribute_name :purchase_location_id
+  = @stock.purchase_location_id
+%p 
+  %b= Stock.human_attribute_name :purchase_amount
+  = @stock.purchase_amount
+%p 
+  %b= Stock.human_attribute_name :description
+  = @stock.description
+
+= link_to 'Edit', edit_stock_path(@singular_name)
+|
+= link_to 'Back', stocks_path

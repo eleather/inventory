@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p 
+  %b= Material.human_attribute_name :material_type_id
+  = @material.material_type_id
+%p 
+  %b= Material.human_attribute_name :name
+  = @material.name
+%p 
+  %b= Material.human_attribute_name :description
+  = @material.description
+
+= link_to 'Edit', edit_material_path(@singular_name)
+|
+= link_to 'Back', materials_path
