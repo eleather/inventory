@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%p
+  %b Product:
+  = link_to @item.product.name, product_path(@item.product)
+  
+%p
+  %b Name:
+  = @item.name
+  
+%p
+  %b Item number:
+  = @item.item_number
+
+%p
+  %b Description:
+  = @item.description
+
+
+
+= link_to 'Edit', edit_item_path(@item)
+|
+= link_to 'Back', items_path

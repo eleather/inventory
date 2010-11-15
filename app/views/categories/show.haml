@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p 
+  %b= Category.human_attribute_name :name
+  = @category.name
+%p 
+  %b= Category.human_attribute_name :description
+  = @category.description
+
+= link_to 'Edit', edit_category_path(@singular_name)
+|
+= link_to 'Back', categories_path

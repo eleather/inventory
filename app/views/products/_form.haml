@@ -1,0 +1,31 @@
+- form_for(@product) do |f|
+  - if @product.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+
+      %ul
+        - @product.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :product_type_id
+    %br
+    - if Type.all.any?
+      = f.select :product_type_id, Type.all.map {|u| [u.name, u.id]}
+    - else
+      = "You haven't created any product types.  #{link_to 'Click here', new_type_path} to add one."
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :product_number
+    %br
+    = f.text_field :product_number
+  .field
+    = f.label :description
+    %br
+    = f.text_area :description
+  .actions
+    = f.submit
+

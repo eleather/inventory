@@ -1,0 +1,30 @@
+= form_for(@item) do |f|
+  - if @item.errors.any? 
+    #error_explanation
+      %h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
+
+      %ul
+        - @item.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :product_id
+    %br
+    - if Product.all.any?
+      = f.select :product_id, Product.all.map {|u| [u.name, u.id]}
+    - else
+      = "You haven't created any products.  #{link_to 'Click here', new_product_path} to add one."
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :item_number
+    %br
+    = f.text_field :item_number
+  .field
+    = f.label :description
+    %br
+    = f.text_area :description
+  .actions
+    = f.submit

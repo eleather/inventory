@@ -1,0 +1,19 @@
+%h1 Listing categories
+
+%table
+  %tr
+    %th= Category.human_attribute_name :name
+    %th= Category.human_attribute_name :description
+    %th
+    %th
+    %th
+  
+  - @categories.each do |category|
+    %tr{ :class => cycle(:odd, :even) }
+      %td= category.name
+      %td= category.description
+      %td.action= link_to 'Show', category
+      %td.action= link_to 'Edit', edit_category_path(category)
+      %td.action= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete
+
+= link_to 'New Category', new_category_path

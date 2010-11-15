@@ -1,0 +1,21 @@
+%h1 Listing types
+
+%table
+  %tr
+    %th= Type.human_attribute_name :category_id
+    %th= Type.human_attribute_name :name
+    %th= Type.human_attribute_name :description
+    %th
+    %th
+    %th
+  
+  - @types.each do |type|
+    %tr{ :class => cycle(:odd, :even) }
+      %td= link_to type.category.name, category_path(type.category)
+      %td= type.name
+      %td= type.description
+      %td.action= link_to 'Show', type
+      %td.action= link_to 'Edit', edit_type_path(type)
+      %td.action= link_to 'Destroy', type, :confirm => 'Are you sure?', :method => :delete
+
+= link_to 'New Type', new_type_path
