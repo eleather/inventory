@@ -65,10 +65,10 @@ Inventory::Application.routes.draw do |map|
   
   resources :material_types
   
-  resources :materials
-  
-  resources :stocks do
-    resources :components
+  resources :materials do  
+    resources :stocks do
+      resources :components
+    end
   end
   
   

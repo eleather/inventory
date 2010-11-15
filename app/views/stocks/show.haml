@@ -2,7 +2,7 @@
 
 %p 
   %b= Stock.human_attribute_name :material_id
-  = @stock.material_id
+  = link_to @stock.material.name, material_path(@stock.material)
 %p 
   %b= Stock.human_attribute_name :name
   = @stock.name

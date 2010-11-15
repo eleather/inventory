@@ -10,7 +10,10 @@
   .field
     = f.label :material_id
     %br
-    = f.text_field :material_id
+    - if Material.all.any?
+      = f.select :material_id, Material.all.map {|u| [u.name, u.id]}
+    - else
+      = "You haven't created any materials.  #{link_to 'Click here', new_material_path} to add one."
   .field
     = f.label :name
     %br

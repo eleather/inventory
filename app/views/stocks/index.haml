@@ -16,7 +16,7 @@
   
   - @stocks.each do |stock|
     %tr{ :class => cycle(:odd, :even) }
-      %td= stock.material_id
+      %td= link_to stock.material.name, material_path(stock.material)
       %td= stock.name
       %td= stock.amount_type_id
       %td= stock.amount

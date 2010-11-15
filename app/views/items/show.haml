@@ -1,5 +1,6 @@
 %p#notice= notice
 
+%h3 TAB 1 - 'Information'?
 %p
   %b Product:
   = link_to @item.product.name, product_path(@item.product)
@@ -21,3 +22,12 @@
 = link_to 'Edit', edit_item_path(@item)
 |
 = link_to 'Back', items_path
+
+%h3 TAB 2 - Components (x)
+.association_list_box#component_list
+  .association_list_box_title Components
+  .association_list_box_content
+    - @material.components.each do |component|
+      = link_to (!component.name.blank? ? component.name : 'make a pretty name method for component'), component_path(component)
+  .association_list_box_footer
+    = link_to 'Add Component', new_item_component_path(@item)
